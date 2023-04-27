@@ -35,5 +35,4 @@ public class UserTest {
         Assertions.assertNotEquals(user2.getLogin(), user2.getEmail());
     }
 
-
 }
