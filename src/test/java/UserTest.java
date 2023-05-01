@@ -8,6 +8,9 @@ public class UserTest {
     private static User user1;
     private static User user2;
 
+    private static String login;
+    private static String email;
+
     @BeforeAll
     public static void createUsers() {
         user1 = new User();
@@ -22,7 +25,7 @@ public class UserTest {
 
     @Test
     public void testCreateWithoutParameters() {
-        Assertions.assertTrue(user1.getEmail()== null && user1.getLogin() == null);
+        Assertions.assertTrue(user1.getEmail() == null && user1.getLogin() == null);
     }
 
     @Test
@@ -32,7 +35,8 @@ public class UserTest {
 
     @Test
     public void testEqualsLoginAndEmail() {
-        Assertions.assertNotEquals(user2.getLogin(), user2.getEmail());
+        login = "default@mail.ru";
+        email = "default@mail.ru";
+        Assertions.assertThrows(RuntimeException.class, () -> new User(login, email));
     }
-
 }
